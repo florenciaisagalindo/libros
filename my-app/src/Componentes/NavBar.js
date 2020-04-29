@@ -7,7 +7,7 @@ const NavBar = () => {
     return ( 
         
       <Navbar id="navbar" bg="dark">
-        <Navbar.Brand className="titulo-nb">Titulo</Navbar.Brand>
+        <Navbar.Brand className="titulo-nb">App de Libros</Navbar.Brand>
       </Navbar>
    
      );
