@@ -1,0 +1,12 @@
+.libros form{
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.libros form div{
+    margin-right: 20px ;
+}
+.libros form div label{
+    margin-right: 10px;
+}
