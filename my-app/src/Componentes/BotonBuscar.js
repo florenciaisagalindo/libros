@@ -5,7 +5,7 @@ import './Estilos/BotonBuscar.css'
 const BotonBuscar = () => {
     return ( 
         <Fragment>
-          <Button variant="info">Buscar</Button>{' '}
+          <Button id="buscar" variant="info">Buscar</Button>{' '}
     </Fragment>
      );
 }
