@@ -1,14 +1,19 @@
 const express= require('express');
-const cors = require('cors');
 const bodyParser= require('body-parser');
-const mongoose = require('mongoose');
+const morgan = require ('morgan');
+const cors = require('cors');
 const app= express();
+const {initMongo} = require('./db');
+
+
+require ('dotenv').config();
+initMongo();
 
 //Rutas de la aplicación
 const router = require ('./routes');
 
-//Conexión a Mongo DB
-mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true, useUnifiedTopology: true}, ()=>console.log("Conectado a MongoDB"));
+//Conexión a Mongo DB. Esto lo modificamos para pasarlo a db/index.js
+//mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true, useUnifiedTopology: true}, ()=>console.log("Conectado a MongoDB"));
 
 
 //Procesamiento de formularios
@@ -24,7 +29,49 @@ app.use(cors());
 app.use('/api', router);
 
 //Iniciar la aplicación con toda la configuración previa
-app.listen(8080, console.log("Servidor iniciado en el puerto 8080"));
+//app.listen(8080, console.log("Servidor iniciado en el puerto 8080"));
+
+
+app.use(morgan('combined'));
+
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => console.log(`Servidor iniciado en ${PORT}`));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // //Direccionamiento - rutas  
